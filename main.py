@@ -284,8 +284,8 @@ class MovieAnalyzer:
 
 # Exportar CVS a DataFrames
 
-path_in_movies = '/Users/negro/Library/CloudStorage/OneDrive-Personal/Documentos/00 Fran/01 - Personales/02-Learn/0. Data Science/0. Data Science/2_projects/d_moviesML_API_1.1/Data Set/df_movies_norm.csv'
-path_in_credits = '/Users/negro/Library/CloudStorage/OneDrive-Personal/Documentos/00 Fran/01 - Personales/02-Learn/0. Data Science/0. Data Science/2_projects/d_moviesML_API_1.1/Data Set/df_credits_norm.csv'
+path_in_movies = 'https://github.com/fran-as/Movies_API/blob/369937996ef8e6f385297e2dc9530ddd0f549379/Data%20Set/df_movies_norm.csv'
+path_in_credits = 'https://github.com/fran-as/Movies_API/blob/369937996ef8e6f385297e2dc9530ddd0f549379/Data%20Set/df_credits_norm.csv'
 
 df_movies_norm = pd.read_csv(path_in_movies, encoding='UTF-8', decimal='.')
 df_credits_norm = pd.read_csv(path_in_credits,encoding='UTF-8')
