@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 import pandas as pd
+import requests
 import json as json
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -284,11 +285,17 @@ class MovieAnalyzer:
 
 # Exportar CVS a DataFrames
 
-path_in_movies = 'https://github.com/fran-as/Movies_API/blob/369937996ef8e6f385297e2dc9530ddd0f549379/Data%20Set/df_movies_norm.csv'
-path_in_credits = 'https://github.com/fran-as/Movies_API/blob/369937996ef8e6f385297e2dc9530ddd0f549379/Data%20Set/df_credits_norm.csv'
+url_movies = 'https://github.com/fran-as/Movies_API/blob/369937996ef8e6f385297e2dc9530ddd0f549379/Data%20Set/df_movies_norm.csv'
+url_credits = 'https://github.com/fran-as/Movies_API/blob/369937996ef8e6f385297e2dc9530ddd0f549379/Data%20Set/df_credits_norm.csv'
+movies = requests.get(url_movies).content
+credits = requests.get(url_movies).content
 
-df_movies_norm = pd.read_csv(path_in_movies, encoding='UTF-8', decimal='.')
-df_credits_norm = pd.read_csv(path_in_credits,encoding='UTF-8')
+# path_in_movies = pd.read_html()
+# path_in_credits = pd.read_html()
+
+df_movies_norm = pd.read_csv(movies, encoding='UTF-8', decimal='.')
+df_credits_norm = pd.read_csv(credits,encoding='UTF-8')
+
 # Convertir la columna 'release_date' a tipo datetime
 df_movies_norm['release_date'] = pd.to_datetime(df_movies_norm['release_date'])
 def replace_null_values(data):
