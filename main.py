@@ -1,7 +1,6 @@
 from fastapi import FastAPI
 import uvicorn
 import pandas as pd
-import requests
 import json as json
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
