@@ -2,14 +2,20 @@ from fastapi import FastAPI
 import uvicorn
 import pandas as pd
 import json as json
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.preprocessing import MinMaxScaler
-
 
 class MovieAnalyzer:
 
     def cantidad_filmaciones_mes(self, mes: str):
+        """
+        Devuelve la cantidad de filmaciones realizadas en un mes específico.
+
+        Args:
+            mes (str): El nombre del mes.
+
+        Returns:
+            dict: Un diccionario con el nombre del mes y la cantidad de filmaciones.
+
+        """
         # Convertir el nombre del mes a minúsculas
         mes = mes.lower()
 
@@ -47,6 +53,16 @@ class MovieAnalyzer:
             return {'error': f'El mes "{mes}" no es válido.'}
 
     def cantidad_filmaciones_dia(self, dia: str):
+        """
+        Devuelve la cantidad de filmaciones realizadas en un día de la semana específico.
+
+        Args:
+            dia (str): El nombre del día.
+
+        Returns:
+            dict: Un diccionario con el nombre del día y la cantidad de filmaciones.
+
+        """
         # Convertir el nombre del día a minúsculas
         dia = dia.lower()
 
@@ -79,6 +95,16 @@ class MovieAnalyzer:
             return f'El día "{dia}" no es válido.'
 
     def score_titulo(self, titulo: str):
+        """
+        Devuelve la información de las películas con un título específico.
+
+        Args:
+            titulo (str): El título de la película.
+
+        Returns:
+            list: Una lista con la información de las películas encontradas.
+
+        """
         # Convertir el título a minúsculas
         titulo = titulo.lower()
 
@@ -102,6 +128,16 @@ class MovieAnalyzer:
             return f'No se encontró ninguna película con título "{titulo}" en el dataset.'
 
     def votos_titulo(self, titulo: str):
+        """
+        Devuelve la información de votos de una película específica.
+
+        Args:
+            titulo (str): El título de la película.
+
+        Returns:
+            dict: Un diccionario con la información de votos de la película.
+
+        """        
         # Convertir el título a minúsculas
         titulo = titulo.lower()
 
@@ -122,6 +158,16 @@ class MovieAnalyzer:
             return f'No se encontró ninguna película con título "{titulo}" en el dataset.'
             
     def get_actor(self, nombre_actor: str):
+        """
+        Devuelve la información de un actor específico.
+
+        Args:
+            nombre_actor (str): El nombre del actor.
+
+        Returns:
+            dict: Un diccionario con la información del actor.
+
+        """        
         # Convertir el nombre del actor a minúsculas
         nombre_actor = nombre_actor.lower()
 
@@ -149,6 +195,16 @@ class MovieAnalyzer:
             return f'No se encontró ninguna filmación para el actor "{nombre_actor}" en el dataset.'
 
     def get_director(self, nombre_director: str):
+        """
+        Devuelve la información de un director específico.
+
+        Args:
+            nombre_director (str): El nombre del director.
+
+        Returns:
+            dict: Un diccionario con la información del director.
+
+        """
         # Convertir el nombre del director a minúsculas
         nombre_director = nombre_director.lower()
 
@@ -192,43 +248,12 @@ class MovieAnalyzer:
             return f'No se encontró ninguna película dirigida por "{nombre_director}" en el dataset.'
 
     def recomendar_peliculas(self, pelicula_entrada: str):
+
         # Convertir el título de la película de entrada a minúsculas
         pelicula_entrada = pelicula_entrada.lower()
 
         # Convertir los títulos en el DataFrame a minúsculas
         df_movies_norm['title_lower'] = df_movies_norm['title'].str.lower()
-
-        # Crear el vectorizador TF-IDF para 'overview'
-        vectorizer = TfidfVectorizer()
-        vector_matrix = vectorizer.fit_transform(df_movies_norm['overview'].astype(str))
-
-        # Obtener la matriz de características
-        features = vectorizer.get_feature_names_out()
-        matriz_caracteristicas = pd.DataFrame(vector_matrix.toarray(), columns=features)
-
-        # Obtener el índice de la película de entrada
-        indice_pelicula_entrada = df_movies_norm[df_movies_norm['title_lower'] == pelicula_entrada].index[0]
-
-        # Obtener las características de la película de entrada
-        pelicula_entrada_caracteristicas = matriz_caracteristicas.iloc[indice_pelicula_entrada]
-
-        # Calcular la similitud del coseno entre las características de la película de entrada y las demás películas
-        similitudes = cosine_similarity(matriz_caracteristicas, pelicula_entrada_caracteristicas.values.reshape(1, -1))
-
-        # Escalar la similitud a un rango de 0 a 1
-        scaler = MinMaxScaler()
-        similitudes_escaladas = scaler.fit_transform(similitudes)
-
-        # Asignar la similitud como puntaje a cada película
-        df_movies_norm['puntaje'] = similitudes_escaladas.flatten()
-
-        # Ordenar las películas por puntaje en orden descendente
-        peliculas_recomendadas = df_movies_norm.sort_values(by='puntaje', ascending=False).head(5)
-
-        # Crear el JSON con la información de las películas recomendadas
-        peliculas_json = peliculas_recomendadas[['title', 'release_year', 'vote_average', 'popularity', 'genres_name']].to_json(orient='records')
-
-        return peliculas_json
 
         """
         Recomienda películas similares a una película de entrada.
@@ -282,6 +307,7 @@ class MovieAnalyzer:
             }
         else:
             return f'No se encontró ninguna película con título "{pelicula_entrada}" en el dataset.'
+        
 # Exportar CVS a DataFrames, entorno local
 
 path_in_movies = 'Data Set/df_movies_norm.csv'
