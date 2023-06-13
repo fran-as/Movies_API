@@ -107,14 +107,14 @@ Este proyecto tiene como objetivo principal la normalización y transforamción 
 
 1. Se configuró el entorno de despliegue utilizando Render, un servicio de alojamiento y despliegue de aplicaciones web.
     - Parametros utilizados:
-    -![Render_settings_1](2_projects/d_moviesML_API_1.1/Movies_API/src/Render_settings_1.png)
-    -![Render_settings_2](2_projects/d_moviesML_API_1.1/Movies_API/src/Render_settings_2.png)
-    -![Render_settings_3](2_projects/d_moviesML_API_1.1/Movies_API/src/Render_settings_3.png)
+    -![Render_settings_1](./src/Render_settings_1.png)
+    -![Render_settings_2](./src/Render_settings_2.png)
+    -![Render_settings_3](./src/Render_settings_3.png)
 
 2. Se creó un archivo de configuración `requirements.txt` con las dependencias necesarias para el proyecto.
 4. Se realizó el despliegue del proyecto en Render, asegurando que la API estuviera disponible en línea.
 
-![Texto alternativo](2_projects/d_moviesML_API_1.1/Movies_API/src/Render_deploy_config.png)
+![Texto alternativo](./src/Render_deploy_config.png)
 
 ## Uso de la API
 Una vez desplegado, se pueden realizar las siguientes solicitudes a la API:
@@ -127,9 +127,9 @@ Una vez desplegado, se pueden realizar las siguientes solicitudes a la API:
 - Consultar información sobre un director específico: `https://fastapi-1koe.onrender.com/directores/{nombre_director}`
 - Recomendar películas similares a una película de entrada: `https://fastapi-1koe.onrender.com/recomendar/{pelicula_entrada}`
 - Documentación de la API: https://fastapi-1koe.onrender.com/docs
-![Render_deploy_API_1](https://raw.githubusercontent.com/Fran-AS/Movies_API/src/Render_deploy_API_1.png)
+![Render_deploy_API_1](./src/Render_deploy_API_1.png)
 
-![Render_deploy_API_2](2_projects/d_moviesML_API_1.1/Movies_API/src/Render_deploy_API_2.png)
+![Render_deploy_API_2](./src/Render_deploy_API_2.png)
 
 
 ## Recursos Adicionales
