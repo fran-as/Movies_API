@@ -127,7 +127,7 @@ Una vez desplegado, se pueden realizar las siguientes solicitudes a la API:
 - Consultar información sobre un director específico: `https://fastapi-1koe.onrender.com/directores/{nombre_director}`
 - Recomendar películas similares a una película de entrada: `https://fastapi-1koe.onrender.com/recomendar/{pelicula_entrada}`
 - Documentación de la API: https://fastapi-1koe.onrender.com/docs
-![Render_deploy_API_1](2_projects/d_moviesML_API_1.1/Movies_API/src/Render_deploy_API_1.png)
+![Render_deploy_API_1](https://raw.githubusercontent.com/Fran-AS/Movies_API/src/Render_deploy_API_1.png)
 
 ![Render_deploy_API_2](2_projects/d_moviesML_API_1.1/Movies_API/src/Render_deploy_API_2.png)
 
