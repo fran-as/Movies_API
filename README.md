@@ -107,7 +107,9 @@ Este proyecto tiene como objetivo principal la normalización y transforamción 
 
 1. Se configuró el entorno de despliegue utilizando Render, un servicio de alojamiento y despliegue de aplicaciones web.
     - Parametros utilizados:
-    -![Render_settings_1](./src/Render_settings_1.png)
+    -![Render_settings_1]()<p align="center">
+<img src="https://github.com/HX-PRomero/PI_ML_OPS/raw/main/src/DiagramaConceptualDelFlujoDeProcesos.png"  height=500>
+</p>
     -![Render_settings_2](./src/Render_settings_2.png)
     -![Render_settings_3](./src/Render_settings_3.png)
 
@@ -127,7 +129,9 @@ Una vez desplegado, se pueden realizar las siguientes solicitudes a la API:
 - Consultar información sobre un director específico: `https://fastapi-1koe.onrender.com/directores/{nombre_director}`
 - Recomendar películas similares a una película de entrada: `https://fastapi-1koe.onrender.com/recomendar/{pelicula_entrada}`
 - Documentación de la API: https://fastapi-1koe.onrender.com/docs
+<img src="https://raw.githubusercontent.com/fran-as/Movies_API/deploy/src/Render_deploy_API_1.png" alt="Render_settings_3" width="1000" height="436">
 ![Render_deploy_API_1](./src/Render_deploy_API_1.png)
+![Render_deploy_API_1](https://raw.githubusercontent.com/fran-as/Movies_API/deploy/src/Render_deploy_API_1.png)
 
 ![Render_deploy_API_2](./src/Render_deploy_API_2.png)
 
