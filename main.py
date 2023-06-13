@@ -301,26 +301,6 @@ def replace_null_values(data):
     data[object_columns] = data[object_columns].fillna('')
     data[float_columns] = data[float_columns].fillna(0)
 replace_null_values(df_movies_norm)
-# # Exportar CVS a DataFrames, entorno web
-
-# url_movies = 'https://github.com/fran-as/Movies_API/blob/369937996ef8e6f385297e2dc9530ddd0f549379/Data%20Set/df_movies_norm.csv'
-# url_credits = 'https://github.com/fran-as/Movies_API/blob/369937996ef8e6f385297e2dc9530ddd0f549379/Data%20Set/df_credits_norm.csv'
-
-# df_movies_norm = pd.read_csv(url_movies, encoding='UTF-8', decimal='.')
-# df_credits_norm = pd.read_csv(url_credits,encoding='UTF-8')
-
-# # Convertir la columna 'release_date' a tipo datetime
-# df_movies_norm['release_date'] = pd.to_datetime(df_movies_norm['release_date'])
-# def replace_null_values(data):
-#     """
-#     Reemplaza los valores nulos en las columnas de tipo objeto con una cadena vacía ('') y los valores nulos
-#     en las columnas de tipo float con 0.
-#     """
-#     object_columns = data.select_dtypes(include='object').columns
-#     float_columns = data.select_dtypes(include=['float64', 'float32']).columns
-#     data[object_columns] = data[object_columns].fillna('')
-#     data[float_columns] = data[float_columns].fillna(0)
-# replace_null_values(df_movies_norm)
 
 # Instanciar la clase MovieAnalyzer
 movie_analyzer = MovieAnalyzer()
@@ -332,6 +312,10 @@ app = FastAPI()
 @app.get("/")
 def read_root():
     return {"API": "Análisis de películas"}
+
+@app.get("/healthz", status_code=200)
+async def health_check():
+    return {"status": "OK"}
 
 @app.get("/filmaciones/mes/{mes}")
 def cantidad_filmaciones_mes(mes: str):
