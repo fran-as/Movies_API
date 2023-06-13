@@ -4,7 +4,7 @@
 # <h1 align=center> **Francisco Alba - Fran-AS** </h1>
 
 # <h1 align=center>**`Machine Learning Operations (MLOps)`**</h1>
-# Proyecto de Normalización de Datos,análisis exploratorio de los datos, sistema de recomendación, creacion de API con FastAPI y disponibilización web con Render
+# Proyecto de transformación de datos,análisis exploratorio, sistema de recomendación, creacion de API con FastAPI y disponibilización web con Render
 
 Este proyecto tiene como objetivo principal la normalización y transforamción de los archivos de datos `movies_data.csv` y `credits.csv`, para seguido de la creación de una API utilizando FastAPI y el despliegue del proyecto en Render.
 
