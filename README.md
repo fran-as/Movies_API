@@ -3,8 +3,7 @@
 Este proyecto tiene como objetivo principal la normalización y transforamción de los archivos de datos `movies_data.csv` y `credits.csv`, para seguido de la creación de una API utilizando FastAPI y el despliegue del proyecto en Render.
 
 Toda la docmuntacion pueda accederce atraves del siguiente repositorio
-[![Frans-AS Repo](./2_projects/d_moviesML_API_1.1/Movies_API/src/GitHub_Logo_White.png)](https://github.com/fran-as/Movies_API/tree/deploy)
-
+[Frans-AS Repo](https://github.com/fran-as/Movies_API/tree/deploy)
 ## 1. Transformación de Datos
 
 1. Se inició con los archivos `movies_dataset.csv` y `credits.csv` que contenían información sobre películas y créditos asociados.
@@ -53,6 +52,9 @@ Toda la docmuntacion pueda accederce atraves del siguiente repositorio
 <img src="https://raw.githubusercontent.com/fran-as/Movies_API/deploy/src/Render_deploy_API_1.png" alt="Render_deploy_API_2" width="800" height="350">
 
 <img src="https://raw.githubusercontent.com/fran-as/Movies_API/deploy/src/Render_deploy_API_2.png" alt="Render_deploy_API_2" width="800" height="350">
+
+<iframe width="560" height="315" src="https://youtu.be/UXflgTJhOsk" frameborder="0" allowfullscreen></iframe>
+
 
 - [Documentación de la API](https://fastapi-deploy-w4h0.onrender.com/docs)
 ## Recursos Adicionales
